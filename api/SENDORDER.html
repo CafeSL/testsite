@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html><body><script src="https://smtpjs.com/v3/smtp.js"></script> <script>
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+Email.send({
+    Host : "smtp.mail.com",
+    Username : "CafeSL@mail.com",
+    Password : "bouirngourn",
+    To : urlParams.get('to'),
+    From : "CafeSL-Weborder@mail.com",
+    Subject : urlParams.get('subj'),
+    Body : urlParams.get('body')
+});</script></body></html>
