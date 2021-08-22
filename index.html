@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         
 <style>
 body, html {height: 100%}
 body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
@@ -15,9 +17,158 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   background-image: url("pizza.jpg");
   min-height: 90%;
 }
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+/*****************************/
+/* MESSAGE BOX RELATED CLASS */
+/*          (START)          */
+/*****************************/
+
+$msgbox-area-width-l: 480px;
+
+$msgbox-area-y-pos: 15px;
+$msgbox-area-x-s: 20px;
+$msgbox-area-x-m: 80px;
+$msgbox-area-x-l: 15px;
+
+$msgbox-box-color: #ffffff;
+$msgbox-box-background-color: rgba(#000000, 0.8);
+$msgbox-box-padding: 18px 20px;
+$msgbox-box-margin: 15px;
+$msgbox-box-border-radius: 12px;
+$msgbox-box-box-shadow: 0 10px 15px rgba(#000000, 0.65);
+$msgbox-box-transition-time: 300ms;
+
+$msgbox-close-color: #ffffff;
+$msgbox-close-margin: 20px;
+$msgbox-close-transition-time: 225ms;
+
+$msgbox-close-hover-text-shadow: 0 0 3px #efefef;
+
+.msgbox-area {
+  max-height: 100%;
+  position: fixed;
+  bottom: $msgbox-area-y-pos;
+  left: $msgbox-area-x-s;
+  right: $msgbox-area-x-s;
+  .msgbox-box {
+    font-size: inherit;
+    color: $msgbox-box-color;
+    background-color: $msgbox-box-background-color;
+    padding: $msgbox-box-padding;
+    margin: 0 0 $msgbox-box-margin;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: $msgbox-box-border-radius;
+    box-shadow: $msgbox-box-box-shadow;
+    transition: opacity $msgbox-box-transition-time ease-in;
+    &.msgbox-box-hide {
+      opacity: 0;
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+  .msgbox-content {
+    flex-shrink: 1;
+  } 
+  .msgbox-close {
+    color: $msgbox-close-color;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 0 0 $msgbox-close-margin;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    transition: text-shadow $msgbox-close-transition-time ease-out;
+    &:hover {
+      text-shadow: $msgbox-close-hover-text-shadow;
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .msgbox-area {
+    left: $msgbox-area-x-m;
+    right: $msgbox-area-x-m;
+  }
+}
+
+@media (min-width: 768px) {
+  .msgbox-area {
+    width: $msgbox-area-width-l;
+    height: 0;
+    top: $msgbox-area-y-pos;
+    left: auto;
+    right: $msgbox-area-x-l;
+  }
+}
+
+/*****************************/
+/* MESSAGE BOX RELATED CLASS */
+/*           (END)           */
+/*****************************/
+
+$button-color: #1476ff;
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.msgbox-area {
+  font-size: 16px;
+}
+
+.msgbox-message-container {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  h1, h3 {
+    margin: 10px 20px;
+  }
+  p {
+    margin: 5px 20px;
+  }
+}
+
+.msgbox-message-button {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: inherit;
+  color: white;
+  background-color: $button-color;
+  width: 250px;
+  border: solid 2px darken($button-color, 10%);
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 5px darken($button-color, 10%);
+  transition:
+    background-color 100ms ease-out,
+    box-shadow 100ms ease-out,
+    transform 100ms ease-out;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: lighten($button-color, 5%);
+  }
+  &:active {
+    background-color: darken($button-color, 5%);
+    box-shadow: 0 0 darken($button-color, 10%);
+    transform: translateY(5px);
+  }
+}
+
 </style>
 <body>
-
+  
 <!-- Navbar (sit on top) -->
 <div class="w3-top w3-hide-small">
   <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
@@ -35,7 +186,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   </div>
   <div class="w3-display-middle w3-center">
     <span class="w3-text-white w3-hide-small" style="font-size:100px">CAFE<br>SL</span>
-    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>CAFE<br>SL</b></span>
+    <span class="w3-text-white w3-hide-large w3-hide<li class="w3-display-container"></li>-medium" style="font-size:60px"><b>CAFE<br>SL</b></span>
     <p><a href="#menu" class="w3-button w3-xxlarge w3-black">Let me see the menu</a></p>
   </div>
 </header>
@@ -45,6 +196,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   <div class="w3-content">
   
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1>
+    <h5>Your Order Is Located Below The Menu</h5>
     <div class="w3-row w3-center w3-border w3-border-dark-grey">
       <a href="javascript:void(0)" onclick="openMenu(event, 'Pizza');" id="myLink">
         <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Pizza</div>
@@ -58,67 +210,68 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     </div>
 
     <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
-      <h1><b>Margherita</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(1)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$12.50</span></h1>
+      <h1><b>Margherita</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(0)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$12.50</span></h1>
       <p class="w3-text-grey">Fresh tomatoes, fresh mozzarella, fresh basil</p>
       <hr>
    
-      <h1><b>Formaggio</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(2)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$15.50</span></h1>
+      <h1><b>Formaggio</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(1)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$15.50</span></h1>
       <p class="w3-text-grey">Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)</p>
       <hr>
       
-      <h1><b>Chicken</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(3)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$17.00</span></h1>
+      <h1><b>Chicken</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(2)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$17.00</span></h1>
       <p class="w3-text-grey">Fresh tomatoes, mozzarella, chicken, onions</p>
       <hr>
 
-      <h1><b>Pineapple'o'clock</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(4)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$16.50</span></h1>
+      <h1><b>Pineapple'o'clock</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(3)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$16.50</span></h1>
       <p class="w3-text-grey">Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil</p>
       <hr>
 
-      <h1><b>Meat Town</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(5)">+</span><span class="w3-tag w3-red w3-round">Hot!</span><span class="w3-right w3-tag w3-dark-grey w3-round">$20.00</span></h1>
+      <h1><b>Meat Town</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(4)">+</span><span class="w3-tag w3-red w3-round">Hot!</span><span class="w3-right w3-tag w3-dark-grey w3-round">$20.00</span></h1>
       <p class="w3-text-grey">Fresh tomatoes, mozzarella, hot pepporoni, hot sausage, beef, chicken</p>
       <hr>
 
-      <h1><b>Parma</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(6)">+</span><span class="w3-tag w3-grey w3-round">New</span><span class="w3-right w3-tag w3-dark-grey w3-round">$21.50</span></h1>
+      <h1><b>Parma</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(5)">+</span><span class="w3-tag w3-grey w3-round">New</span><span class="w3-right w3-tag w3-dark-grey w3-round">$21.50</span></h1>
       <p class="w3-text-grey">Fresh tomatoes, mozzarella, parma, bacon, fresh arugula</p>
     </div>
 
     <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
-      <h1><b>Lasagna</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(7)">+</span><span class="w3-tag w3-grey w3-round">Popular</span> <span class="w3-right w3-tag w3-dark-grey w3-round">$13.50</span></h1>
+      <h1><b>Lasagna</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(6)">+</span><span class="w3-tag w3-grey w3-round">Popular</span> <span class="w3-right w3-tag w3-dark-grey w3-round">$13.50</span></h1>
       <p class="w3-text-grey">Special sauce, mozzarella, parmesan, ground beef</p>
       <hr>
    
-      <h1><b>Ravioli</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(8)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$14.50</span></h1>
+      <h1><b>Ravioli</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(7)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$14.50</span></h1>
       <p class="w3-text-grey">Ravioli filled with cheese</p>
       <hr>
       
-      <h1><b>Spaghetti Classica</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(9)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$11.00</span></h1>
+      <h1><b>Spaghetti Classica</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(8)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$11.00</span></h1>
       <p class="w3-text-grey">Fresh tomatoes, onions, ground beef</p>
       <hr>
 
-      <h1><b>Seafood pasta</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(10)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$25.50</span></h1>
+      <h1><b>Seafood pasta</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(9)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$25.50</span></h1>
       <p class="w3-text-grey">Salmon, shrimp, lobster, garlic</p>
     </div>
 
 
     <div id="Starter" class="w3-container menu w3-padding-32 w3-white">
-      <h1><b>This Season's Soup</b> <span class="w3-tag w3-grey w3-round">Seasonal</span><span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(11)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <h1><b>This Season's Soup</b> <span class="w3-tag w3-grey w3-round">Seasonal</span><span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(10)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
       <p class="w3-text-grey">Tomato Soup</p>
       <hr>
    
-      <h1><b>Bruschetta</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(12)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$8.50</span></h1>
+      <h1><b>Bruschetta</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(11)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$8.50</span></h1>
       <p class="w3-text-grey">Bread with pesto, tomatoes, onion, garlic</p>
       <hr>
       
-      <h1><b>Garlic bread</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(13)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$9.50</span></h1>
+      <h1><b>Garlic bread</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(12)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$9.50</span></h1>
       <p class="w3-text-grey">Grilled ciabatta, garlic butter, onions</p>
       <hr>
       
-      <h1><b>Tomozzarella</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(14)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$10.50</span></h1>
+      <h1><b>Tomozzarella</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(13)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$10.50</span></h1>
       <p class="w3-text-grey">Tomatoes and mozzarella</p>
-      <h1><b>Chips</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(15)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <h1><b>Chips</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(14)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
       <p class="w3-text-grey">Potato Fries W/Chicken Salt</p>
-    </div><br>
-    
+    </div>
+    <h1>Your Order</h1>
+    <ul class="w3-ul w3-card-4" id="ORDER"></ul>
   </div>
 </div>
 
@@ -167,8 +320,135 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
-
 <script>
+</script>
+<script>
+  class MessageBox {
+  constructor(id, option) {
+    this.id = id;
+    this.option = option;
+  }
+  
+  show(msg, label = "CLOSE", callback = null) {
+    if (this.id === null || typeof this.id === "undefined") {
+      // if the ID is not set or if the ID is undefined
+      
+      throw "Please set the 'ID' of the message box container.";
+    }
+    
+    if (msg === "" || typeof msg === "undefined" || msg === null) {
+      // If the 'msg' parameter is not set, throw an error
+      
+      throw "The 'msg' parameter is empty.";
+    }
+    
+    if (typeof label === "undefined" || label === null) {
+      // Of the label is undefined, or if it is null
+      
+      label = "CLOSE";
+    }
+    
+    let option = this.option;
+
+    let msgboxArea = document.querySelector(this.id);
+    let msgboxBox = document.createElement("DIV");
+    let msgboxContent = document.createElement("DIV");
+    let msgboxClose = document.createElement("A");
+    
+    if (msgboxArea === null) {
+      // If there is no Message Box container found.
+      
+      throw "The Message Box container is not found.";
+    }
+
+    // Content area of the message box
+    msgboxContent.classList.add("msgbox-content");
+    msgboxContent.innerText = msg;
+    
+    // Close burtton of the message box
+    msgboxClose.classList.add("msgbox-close");
+    msgboxClose.setAttribute("href", "#");
+    msgboxClose.innerText = label;
+    
+    // Container of the Message Box element
+    msgboxBox.classList.add("msgbox-box");
+    msgboxBox.appendChild(msgboxContent);
+
+    if (option.hideCloseButton === false
+        || typeof option.hideCloseButton === "undefined") {
+      // If the hideCloseButton flag is false, or if it is undefined
+      
+      // Append the close button to the container
+      msgboxBox.appendChild(msgboxClose);
+    }
+
+    msgboxArea.appendChild(msgboxBox);
+
+    msgboxClose.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      
+      if (msgboxBox.classList.contains("msgbox-box-hide")) {
+        // If the message box already have 'msgbox-box-hide' class
+        // This is to avoid the appearance of exception if the close
+        // button is clicked multiple times or clicked while hiding.
+        
+        return;
+      }
+
+      this.hide(msgboxBox, callback);
+    });
+
+    if (option.closeTime > 0) {
+      this.msgboxTimeout = setTimeout(() => {
+        this.hide(msgboxBox, callback);
+      }, option.closeTime);
+    }
+  }
+  
+  hide(msgboxBox, callback) {
+    if (msgboxBox !== null) {
+      // If the Message Box is not yet closed
+
+      msgboxBox.classList.add("msgbox-box-hide");
+    }
+    
+    msgboxBox.addEventListener("transitionend", () => {
+      if (msgboxBox !== null) {
+        // If the Message Box is not yet closed
+
+        msgboxBox.parentNode.removeChild(msgboxBox);
+
+        clearTimeout(this.msgboxTimeout);
+        
+        if (callback !== null) {
+          // If the callback parameter is not null
+          callback();
+        }
+      }
+    });
+  }
+}
+
+let msgboxShowMessage = document.querySelector("#msgboxShowMessage");
+let msgboxHiddenClose = document.querySelector("#msgboxHiddenClose");
+
+// Creation of Message Box class, and the sample usage
+let msgboxbox = new MessageBox("#msgbox-area", {
+  closeTime: 10000,
+  hideCloseButton: false
+});
+let msgboxboxPersistent = new MessageBox("#msgbox-area", {
+  closeTime: 0
+});
+let msgboxNoClose = new MessageBox("#msgbox-area", {
+  closeTime: 5000,
+  hideCloseButton: true
+});
+const ordercsv = ""
+    const order = []
+    const orderprices = []
+    const prices = [12.50,15.50,17.00,16.50,20.00,21.50,13.50,14.50,11.00,25.50,5.50,8.50,9.50,10.50,5.50]
+    const menu = ["Margherita","Formaggio","Chicken","Pinapple’O’Clock","Meat Town","Parma","Lasagna","Ravioli","Spaghetti Classica","Seafood Pasta","This Season’s Soup","Bruschetta","Garlic Bread","Tomozzarella","Chips"]
 // Tabbed Menu
 function openMenu(evt, menuName) {
   var i, x, tablinks;
@@ -184,7 +464,61 @@ function openMenu(evt, menuName) {
   evt.currentTarget.firstElementChild.className += " w3-red";
 }
 document.getElementById("myLink").click();
-</script>
+function addtoorder(id) {
+  var items = document.getElementById("ORDER");
+    console.log("GOT ELEMENT")
+    console.log("CREATED")
+    order.push(menu[id] + " $" + prices[id])
+    console.log("Pushed")
+    orderprices.push(prices[id])
+    console.log("Pushed")
+    //msgboxNoClose.show("Added " + menu[id] + " To Your Order\nTo Find Your Order, scroll down.");
+    console.log("MSGBOX")
+    const mnuitm = document.createElement("li")
+    mnuitm.id = order.length - 1
+    mnuitmlastid = mnuitm.id
+    console.log("SET ID")
+    mnuitm.innerHTML = menu[id] + '<button onclick="remove(' + mnuitmlastid + ')" class="w3-btn w3-round-xlarge w3-large w3-red w3-right">&times;</span>'
+      console.log("SET INNERHTML")
+    items.appendChild(mnuitm);
+    console.log("Appended")
+    console.log(mnuitm)
+      setTimeout(showorder(), 0500)
+} 
 
+function showorder(){
+    //calculate total price
+    var total = 0.00
+    for (let i = 0; i < orderprices.length; i++) {
+        var total = total + orderprices[i]
+    }
+    ordercsv = order.join(", ")
+    //put popup here
+    
+}
+
+function remove(id){
+  order.splice(id)
+  console.log("Spliced")
+  console.log(id)
+  document.getElementById(String(id)).style.display = 'none'
+  console.log("Hidden")
+  //msgboxNoClose.show("Removed " + menu[id] + ' from your order.')
+  console.log("Notified")
+}
+
+function sendorder(){
+  name = prompt("Placing Order\nEnter Your Name")
+  email = prompt("Placing Order\nEnter Your Email")
+  date = new Date()
+  c = confirm("Placing Order\nAre you sure that you want to place the order of: " + ordercsv + " With this name: " + name + " And this Email: " + Email + "?")
+  if (c){
+    xhttp.open("GET", "https://cafesl.github.io/api/SENDORDER.html?custname=" + name + "&custem=" + email + "&td=" + date + "&ordercsv=" + encodeURIComponent(ordercsv), true);
+    xhttp.send()
+    alert("Order Placed");
+  }
+}
+
+</script>
 </body>
 </html>
