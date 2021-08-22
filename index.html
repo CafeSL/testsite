@@ -127,7 +127,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       <p class="w3-text-grey">Potato Fries W/Chicken Salt</p>
     </div>
     <h1>Your Order</h1>
-    <ul class="w3-ul w3-card-4" id="ORDER"></ul>
+           <ul class="w3-ul w3-card-4" id="ORDER"></ul><h4>Total $:</h4><h4 id="total"></h4>
            <span class="w3-tag w3-dark-grey w3-round" onclick="sendorder()">Send Order</span>
   </div>
 </div>
@@ -335,7 +335,7 @@ function addtoorder(id) {
     mnuitm.id = order.length - 1
     mnuitmlastid = mnuitm.id
     console.log("SET ID")
-    mnuitm.innerHTML = menu[id] + '<button onclick="remove(' + mnuitmlastid + ')" class="w3-btn w3-round-xlarge w3-large w3-red w3-right">&times;</span>'
+    mnuitm.innerHTML = order[id] + '<button onclick="remove(' + mnuitmlastid + ')" class="w3-btn w3-round-xlarge w3-large w3-red w3-right">&times;</span>'
       console.log("SET INNERHTML")
     items.appendChild(mnuitm);
     console.log("Appended")
@@ -350,7 +350,8 @@ function showorder(){
         var total = total + orderprices[i]
     }
     ordercsv = order.join(", ")
-    //put popup here
+    var tot = document.getElementById("total")
+    tot.innerHTML = "$" + total
     
 }
 
@@ -365,6 +366,7 @@ function remove(id){
 }
 
 function sendorder(){
+         showorder()
   name = prompt("Placing Order\nEnter Your Name")
   email = prompt("Placing Order\nEnter Your Email")
   date = new Date()
