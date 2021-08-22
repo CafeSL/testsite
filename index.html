@@ -74,7 +74,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       <p class="w3-text-grey">Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)</p>
       <hr>
       
-      <h1><b>Chicken</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(2)">+</span><span class="w3-right w3-tag w3-dark-grey w3-round">$17.00</span></h1>
+      <h1><b>Chicken</b> <span class="w3-right w3-tag w3-dark-grey w3-round" onclick="addtoorder(2)">+</sporderprices[i]an><span class="w3-right w3-tag w3-dark-grey w3-round">$17.00</span></h1>
       <p class="w3-text-grey">Fresh tomatoes, mozzarella, chicken, onions</p>
       <hr>
 
@@ -364,6 +364,7 @@ function remove(id){
   //msgboxNoClose.show("Removed " + menu[id] + ' from your order.')
   console.log("Notified")
          total = total - orderprices[id]
+         showorder()
 }
 
 function sendorder(){
