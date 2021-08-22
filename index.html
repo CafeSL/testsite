@@ -13,6 +13,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 .menu {display: none}
 .bgimg {
   background-repeat: no-repeat;
+
   background-size: cover;
   background-image: url("pizza.jpg");
   min-height: 90%;
@@ -203,6 +204,14 @@ body {
       </a>
       <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');">
         <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Salads</div>
+4
+<meta charset="UTF-8">
+5
+<meta name="viewport" content="width=device-width, initial-scale=1">
+6
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+7
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
       </a>
       <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
         <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Starter</div>
@@ -272,6 +281,7 @@ body {
     </div>
     <h1>Your Order</h1>
     <ul class="w3-ul w3-card-4" id="ORDER"></ul>
+           <span class="w3-center w3-tag w3-dark-grey w3-round" onclick="sendorder()">Send Order</span>
   </div>
 </div>
 
@@ -511,7 +521,7 @@ function sendorder(){
   name = prompt("Placing Order\nEnter Your Name")
   email = prompt("Placing Order\nEnter Your Email")
   date = new Date()
-  c = confirm("Placing Order\nAre you sure that you want to place the order of: " + ordercsv + " With this name: " + name + " And this Email: " + Email + "?")
+  c = confirm("Placing Order\nAre you sure that you want to place the order of: " + ordercsv + " With this name: " + name + " And this Email: " + email + "?")
   if (c){
     xhttp.open("GET", "https://cafesl.github.io/api/SENDORDER.html?custname=" + name + "&custem=" + email + "&td=" + date + "&ordercsv=" + encodeURIComponent(ordercsv), true);
     xhttp.send()
