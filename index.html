@@ -349,7 +349,7 @@ function showorder(){
     for (let i = 0; i < orderprices.length; i++) {
         var total = total + orderprices[i]
     }
-    ordercsv = order.join(", ")
+    ordercsv = order.join(",")
     var tot = document.getElementById("total")
     tot.innerHTML = "$" + total
     
