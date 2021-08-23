@@ -374,8 +374,9 @@ function sendorder(){
   date = new Date()
   c = confirm("Placing Order\nAre you sure that you want to place the order of: " + ordercsv + " With this name: " + name + " And this Email: " + email + "?")
   if (c){
-    xhttp.open("GET", "https://cafesl.github.io/api/SENDORDER.html?custname=" + name + "&custem=" + email + "&td=" + date + "&ordercsv=" + encodeURIComponent(ordercsv), true);
-    xhttp.send()
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('GET', "https://cafesl.github.io/api/SENDORDER.html?custname=" + name + "&custem=" + email + "&td=" + date + "&ordercsv=" + encodeURIComponent(ordercsv));
+    httpRequest.send();
     alert("Order Placed");
   }
 }
