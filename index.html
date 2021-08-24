@@ -54,13 +54,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Amatic SC', sans-serif}
     <h1 class='w3-center w3-jumbo' style='margin-bottom:64px'>THE MENU</h1>
     <h5>Your Order Is Located Below The Menu</h5>
     <div class='w3-row w3-center w3-border w3-border-dark-grey'>
-      <a href='javascript:void(0)' onclick='openMenu(event, 'Pizza');' id='myLink'>
+      <a href='javascript:void(0)' onclick='openMenu(event, "Pizza");' id='myLink'>
         <div class='w3-col s4 tablink w3-padding-large w3-hover-red'>Pizza</div>
       </a>
-      <a href='javascript:void(0)' onclick='openMenu(event, 'Pasta');'>
+      <a href='javascript:void(0)' onclick='openMenu(event, "Pasta");'>
         <div class='w3-col s4 tablink w3-padding-large w3-hover-red'>Salads</div>
       </a>
-      <a href='javascript:void(0)' onclick='openMenu(event, 'Starter');'>
+      <a href='javascript:void(0)' onclick='openMenu(event, "Starter");'>
         <div class='w3-col s4 tablink w3-padding-large w3-hover-red'>Starter</div>
       </a>
     </div>
@@ -381,7 +381,7 @@ function sendorder(){
     To : 'CafeSL-Weborder@mail.com',
     From : 'CafeSL-Weborder@mail.com',
     Subject : 'New Order',
-    Body : '<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Amatic+SC'><style>body,h1,h2,h3,h4,h5,h6 {font-family: 'Amatic SC', sans-serif}</style><h1>Cafe SL</h1><h2>New Order</h2><h3>Name: ' + name + '<br>Email: ' + email + '<br>Time And Date: ' + date + '<br>Order: ' + ordercsv + '</h3>'
+    Body : '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC"><style>body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}</style><h1>Cafe SL</h1><h2>New Order</h2><h3>Name: " + name + "<br>Email: " + email + "<br>Time And Date: " + date + "<br>Order: " + ordercsv + "</h3>'
 });
 
            Email.send({
@@ -389,7 +389,7 @@ function sendorder(){
     To : 'CafeSL-Weborder@mail.com',
     From : 'CafeSL-Weborder@mail.com',
     Subject : 'New Order',
-    Body : '<center><link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Amatic+SC'><style>body,h1,h2,h3,h4,h5,h6 {font-family: 'Amatic SC', sans-serif}</style><p><img src='https://github.com/CafeSL/cafesl.github.io/blob/main/favicon.png?raw=true' alt='favicon' width='50px'></p> <h1>Your Order Is On It's Way!</h1> <h4>Dear, ' + name + ' your order is on it's way!</h4> <h4>Date And Time Placed:' + date + '</h4> <h4>Your Order:</h4> <h4>' + ordercsv + '</h4> <h4><a href='http://cafesl-github.io/track.html?trackid=[trackid]'><img src='https://dabuttonfactory.com/button.png?t=Track+It!&amp;f=Komika-Bold&amp;ts=24&amp;tc=fff&amp;tshs=1&amp;tshc=000&amp;hp=20&amp;vp=8&amp;c=5&amp;bgt=gradient&amp;bgc=4dc63d&amp;ebgc=f80' alt='button'></a></h4>'
+    Body : '<center><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC"><style>body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}</style><p><img src="https://github.com/CafeSL/cafesl.github.io/blob/main/favicon.png?raw=true" alt="favicon" width="50px"></p> <h1>Your Order Is On It"s Way!</h1> <h4>Dear, " + name + " your order is on it"s way!</h4> <h4>Date And Time Placed:" + date + "</h4> <h4>Your Order:</h4> <h4>" + ordercsv + "</h4> <h4><a href="http://cafesl-github.io/track.html?trackid=[trackid]"><img src="https://dabuttonfactory.com/button.png?t=Track+It!&amp;f=Komika-Bold&amp;ts=24&amp;tc=fff&amp;tshs=1&amp;tshc=000&amp;hp=20&amp;vp=8&amp;c=5&amp;bgt=gradient&amp;bgc=4dc63d&amp;ebgc=f80" alt="button"></a></h4>'
 });
     alert('Order Placed');
   }
