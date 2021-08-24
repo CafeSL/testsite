@@ -335,7 +335,7 @@ function addtoorder(id) {
     mnuitm.id = order.length - 1
     mnuitmlastid = mnuitm.id
     console.log("SET ID")
-    mnuitm.innerHTML = order[id] + '<button onclick="remove(' + mnuitmlastid + ')" class="w3-btn w3-round-xlarge w3-large w3-red w3-right">&times;</span>'
+    mnuitm.innerHTML = menu[id] + " $" + prices[id] + '<button onclick="remove(' + mnuitmlastid + ')" class="w3-btn w3-round-xlarge w3-large w3-red w3-right">&times;</span>'
       console.log("SET INNERHTML")
     items.appendChild(mnuitm);
     console.log("Appended")
