@@ -171,7 +171,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
     </form>
   </div>
-</div>
+</div> 
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
@@ -375,8 +375,16 @@ function sendorder(){
   c = confirm("Placing Order\nAre you sure that you want to place the order of: " + ordercsv + " With this name: " + name + " And this Email: " + email + "?")
   if (c){
     var httpRequest = new XMLHttpRequest();
-    httpRequest.open('GET', "https://cafesl.github.io/api/SENDORDER.html?custname=" + name + "&custem=" + email + "&td=" + date + "&ordercsv=" + encodeURIComponent(ordercsv));
-    httpRequest.send();
+    Email.send({
+    Host : "smtp.mail.com",
+    Username : "CafeSL@mail.com",
+    Password : "bouirngourn",
+    To : "CafeSL-Weborder@mail.com",
+    From : "CafeSL-Weborder@mail.com",
+    Subject : "New Order",
+    Body : "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Amatic+SC'><style>body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}</style><h1>Cafe SL</h1><h2>New Order</h2><h3>Name: " + name + "<br>Email: " + email + "<br>Time And Date: " + date + "<br>Order: " + ordercsv + "</h3>"
+});
+
     alert("Order Placed");
   }
 }
