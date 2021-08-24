@@ -190,13 +190,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Amatic SC', sans-serif}
     if (this.id === null || typeof this.id === 'undefined') {
       // if the ID is not set or if the ID is undefined
       
-      throw 'Please set the 'ID' of the message box container.';
+      throw(Please set the 'ID' of the message box container.');
     }
     
     if (msg === '' || typeof msg === 'undefined' || msg === null) {
       // If the 'msg' parameter is not set, throw an error
       
-      throw 'The 'msg' parameter is empty.';
+      throw ('The 'msg' parameter is empty.');
     }
     
     if (typeof label === 'undefined' || label === null) {
