@@ -11,5 +11,5 @@ Email.send({
     To : urlParams.get('to'),
     From : "CafeSL-Weborder@mail.com",
     Subject : "New Order",
-    Body : "<h1>Cafe SL</h1><h2>New Order</h2><h3>Name: " + urlParams.get("custname") + "<br>Email: " + urlParams.get("custem") + "<br>Time And Date: " + decodeURIComponent(urlparams.get("td")) + "<br>Order: " + urlParams.get("ordercsv") + "</h3>"
+    Body : "<h1>Cafe SL</h1><h2>New Order</h2><h3>Name: " + urlParams.get("custname") + "<br>Email: " + urlParams.get("custem") + "<br>Time And Date: " + decodeURIComponent(urlParams.get("td")) + "<br>Order: " + decodeURIComponent(urlParams.get("ordercsv")) + "</h3>"
 });</script></body></html>
