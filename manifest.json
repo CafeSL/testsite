@@ -5,8 +5,8 @@
   "background_color": "#000000",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "http://cafesl.github.io/",
-  "start_url": "http://cafesl.github.io/",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
