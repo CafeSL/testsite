@@ -394,7 +394,7 @@ function sendorder(){
     httpRequest.send();
     httpRequest.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
-                 trackcode = this.responseText;
+                 trackid = this.responseText;
           }
   };
     Email.send({
