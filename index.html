@@ -56,7 +56,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: 'Amatic SC', sans-serif}
   </div>
   <div class='w3-display-middle w3-center'>
     <span class='w3-text-white w3-hide-small' style='font-size:100px'>CAFE<br>SL</span>
-    <<span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><li class='w3-display-container'></li><b>CAFE<br>SL</b></span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>CAFE<br>SL</b></span>
     <p><a href='#menu' class='w3-button w3-xxlarge w3-black'>Let me see the menu</a></p>
   </div>
 </header>
@@ -407,9 +407,9 @@ function sendorder(){
 
            Email.send({
     SecureToken: '217cae4b-8251-4082-8931-b53521b3618a',
-    To : 'CafeSL-Weborder@mail.com',
+    To : email,
     From : 'CafeSL-Weborder@mail.com',
-    Subject : 'New Order',
+    Subject : 'Your Order',
     Body : '<center><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC"><style>body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}</style><p><img src="https://github.com/CafeSL/cafesl.github.io/blob/main/favicon.png?raw=true" alt="favicon" width="50px"></p> <h1>Your Order Is On Its Way!</h1> <h4>Dear, ' + name + ' your order is on it\'s way!</h4> <h4>Date And Time Placed:' + date + '</h4> <h4>Your Order:</h4> <h4>' + ordercsv + '</h4> <h4><a href="http://cafesl-github.io/track.html?trackid=' + trackid + '"><img src="https://dabuttonfactory.com/button.png?t=Track+It!&amp;f=Komika-Bold&amp;ts=24&amp;tc=fff&amp;tshs=1&amp;tshc=000&amp;hp=20&amp;vp=8&amp;c=5&amp;bgt=gradient&amp;bgc=4dc63d&amp;ebgc=f80" alt="button"></a></h4>'
 });
     alert('Order Placed');
