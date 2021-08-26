@@ -390,9 +390,9 @@ function sendorder(){
   c = confirm('Placing Order\nAre you sure that you want to place the order of: ' + ordercsv + ' With this name: ' + name + ' And this Email: ' + email + '?')
   if (c){
     var httpRequest = new XMLHttpRequest();
-    xhttp.open("GET", "https://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new", true);
-    xhttp.send();
-    xhttp.onreadystatechange = function() {
+    httpRequest.open("GET", "https://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new", true);
+    httpRequest.send();
+    httpRequest.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
                  trackcode = this.responseText;
           }
