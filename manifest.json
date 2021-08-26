@@ -1,0 +1,15 @@
+{
+  "name": "Cafe SL",
+  "short_name": "Cafe SL",
+  "lang": "en-AU",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#00000",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "1080x1080",
+      "type": "image.png"
+    }
+  ]
+}
