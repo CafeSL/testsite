@@ -397,7 +397,7 @@ function sendorder(){
                  trackid = this.responseText;
                   Email.send({
     SecureToken: 'fe0e3785-89bf-43a1-93d8-c4591c7e8d7f',
-    To : 'CafeSL-Weborder@mail.com',
+    To : 'cslweborder@outlook.com',
     From : 'CafeSL-Weborder@mail.com',
     Subject : 'New Order',
     Body : '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC"><style>body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}</style><h1>Cafe SL</h1><h2>New Order</h2><h3>Name: ' + name + '<br>Email: ' + email + '<br>Time And Date: ' + date + '<br>Order: ' + ordercsv + '</h3>'
