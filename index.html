@@ -431,7 +431,7 @@ function sendorder(){
     Body : '<center><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC"><style>body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}</style><p><img src="https://github.com/CafeSL/cafesl.github.io/blob/main/favicon.png?raw=true" alt="favicon" width="50px"></p> <h1>Your Order Is On Its Way!</h1> <h4>Dear, ' + name + ' your order is on it\'s way!</h4> <h4>Date And Time Placed:' + date + '</h4> <h4>Your Order:</h4> <h4>' + ordercsv + ''
 });
     alert('Order Placed');
-document.write('<h1>DO NOT CLOSE THIS WINDOW! IT IS NEEDED TO CONFIRM YOUR ORDER</h1><img  src="https://hook.integromat.com/uyees8m3eawkgua82knee8dgm6gkioid?name="+name+"&ordercsv="+ordercsv+"&email="+email+"&cost="+total+">"')
+document.write('<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC"><h1 style="font-family: Amatic SC">DO NOT CLOSE THIS WINDOW! IT IS NEEDED TO CONFIRM YOUR ORDER</h1><img  src="https://hook.integromat.com/uyees8m3eawkgua82knee8dgm6gkioid?name="+name+"&ordercsv="+ordercsv+"&email="+email+"&cost="+total+">')
           }
   };
     
